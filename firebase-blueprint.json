@@ -1,0 +1,257 @@
+{
+  "entities": {
+    "Animal": {
+      "title": "Animal",
+      "description": "Registered reptile or wildlife specimen in the facility inventory.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "species": { "type": "string" },
+        "scientificName": { "type": "string" },
+        "morph": { "type": "string" },
+        "sex": { "type": "string", "enum": ["Male", "Female", "Unknown"] },
+        "dob": { "type": "string" },
+        "dateAcquired": { "type": "string" },
+        "source": { "type": "string" },
+        "weight": { "type": "number" },
+        "length": { "type": "number" },
+        "healthStatus": { "type": "string" },
+        "breedingStatus": { "type": "string" },
+        "enclosureId": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "notes": { "type": "string" },
+        "assignedKeeperId": { "type": "string" },
+        "assignedKeeperName": { "type": "string" },
+        "isArchived": { "type": "boolean" },
+        "archiveReason": { "type": "string" },
+        "archiveDate": { "type": "string" }
+      },
+      "required": ["id", "name", "species"]
+    },
+    "Enclosure": {
+      "title": "Enclosure",
+      "description": "Facility habitat, cage, or terrarium housing animals.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "temperature": { "type": "number" },
+        "targetTemp": { "type": "number" },
+        "humidity": { "type": "number" },
+        "targetHumidity": { "type": "number" },
+        "uvbLevel": { "type": "number" },
+        "targetUVB": { "type": "number" },
+        "status": { "type": "string" },
+        "condition": { "type": "string" },
+        "capacity": { "type": "number" },
+        "location": { "type": "string" },
+        "assignedKeeper": { "type": "string" }
+      },
+      "required": ["id", "name", "type"]
+    },
+    "Task": {
+      "title": "Task",
+      "description": "Operational keeper task or routine husbandry schedule.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "type": { "type": "string" },
+        "enclosureId": { "type": "string" },
+        "animalId": { "type": "string" },
+        "assignedTo": { "type": "string" },
+        "status": { "type": "string", "enum": ["Pending", "In Progress", "Completed", "Overdue"] },
+        "priority": { "type": "string", "enum": ["Low", "Medium", "High"] },
+        "date": { "type": "string" },
+        "completedAt": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "title", "type", "status"]
+    },
+    "InventoryItem": {
+      "title": "InventoryItem",
+      "description": "Facility supply, medication, feed, or equipment item.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "currentStock": { "type": "number" },
+        "minStock": { "type": "number" },
+        "maxStock": { "type": "number" },
+        "unit": { "type": "string" },
+        "costPerUnit": { "type": "number" },
+        "supplier": { "type": "string" },
+        "expiryDate": { "type": "string" },
+        "status": { "type": "string" },
+        "isArchived": { "type": "boolean" }
+      },
+      "required": ["id", "name", "category", "currentStock"]
+    },
+    "MedicalRecord": {
+      "title": "MedicalRecord",
+      "description": "Veterinary clinical observation, treatment, or medical history.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "animalId": { "type": "string" },
+        "recordType": { "type": "string" },
+        "recordDate": { "type": "string" },
+        "purpose": { "type": "string" },
+        "clinicalObservation": { "type": "string" },
+        "diagnosis": { "type": "string" },
+        "treatment": { "type": "string" },
+        "nextCheckup": { "type": "string" },
+        "veterinarian": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "animalId", "recordType", "recordDate"]
+    },
+    "Appointment": {
+      "title": "Appointment",
+      "description": "Scheduled veterinary checkup, procedure, or health session.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "animalId": { "type": "string" },
+        "type": { "type": "string" },
+        "veterinarian": { "type": "string" },
+        "requestedBy": { "type": "string" },
+        "date": { "type": "string" },
+        "time": { "type": "string" },
+        "purpose": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "animalId", "date", "purpose"]
+    },
+    "BreedingRecord": {
+      "title": "BreedingRecord",
+      "description": "Pairing, mating, clutch incubation, and hatch log record.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "femaleId": { "type": "string" },
+        "maleId": { "type": "string" },
+        "species": { "type": "string" },
+        "breedingType": { "type": "string" },
+        "breedingDate": { "type": "string" },
+        "status": { "type": "string" },
+        "clutchDate": { "type": "string" },
+        "clutchSize": { "type": "number" },
+        "fertileEggs": { "type": "number" },
+        "infertileEggs": { "type": "number" },
+        "hatchDate": { "type": "string" },
+        "hatchlings": { "type": "number" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "femaleId", "maleId"]
+    },
+    "BreedingAssessment": {
+      "title": "BreedingAssessment",
+      "description": "Veterinary or keeper evaluation of pairing readiness.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "animalId": { "type": "string" },
+        "date": { "type": "string" },
+        "assessorName": { "type": "string" },
+        "readinessScore": { "type": "number" },
+        "status": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "animalId", "date"]
+    },
+    "TransferRecord": {
+      "title": "TransferRecord",
+      "description": "Movement, loan, sale, donation, or exchange disposition log.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "animalId": { "type": "string" },
+        "transferType": { "type": "string" },
+        "transferDate": { "type": "string" },
+        "newOwnerName": { "type": "string" },
+        "referenceNo": { "type": "string" },
+        "status": { "type": "string" },
+        "additionalNotes": { "type": "string" }
+      },
+      "required": ["id", "animalId", "transferType", "transferDate"]
+    },
+    "StaffMember": {
+      "title": "StaffMember",
+      "description": "Authorized sanctuary staff, keeper, veterinarian, or administrator.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "email": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "name", "role", "email"]
+    },
+    "StatutoryReport": {
+      "title": "StatutoryReport",
+      "description": "Government statutory report data (QBR, Monthly Production, Progenies Disposal).",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "reportType": { "type": "string" },
+        "speciesName": { "type": "string" },
+        "metadata": { "type": "string" },
+        "rows": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "updatedBy": { "type": "string" }
+      },
+      "required": ["id", "reportType"]
+    }
+  },
+  "firestore": {
+    "/animals/{animalId}": {
+      "schema": { "$ref": "#/entities/Animal" },
+      "description": "Facility animal inventory registry."
+    },
+    "/enclosures/{enclosureId}": {
+      "schema": { "$ref": "#/entities/Enclosure" },
+      "description": "Habitats and environmental enclosures."
+    },
+    "/tasks/{taskId}": {
+      "schema": { "$ref": "#/entities/Task" },
+      "description": "Staff husbandry and daily care tasks."
+    },
+    "/inventory/{itemId}": {
+      "schema": { "$ref": "#/entities/InventoryItem" },
+      "description": "Facility supply and feed inventory."
+    },
+    "/medical_records/{recordId}": {
+      "schema": { "$ref": "#/entities/MedicalRecord" },
+      "description": "Veterinary clinical logs and medical treatments."
+    },
+    "/appointments/{appointmentId}": {
+      "schema": { "$ref": "#/entities/Appointment" },
+      "description": "Veterinary checkup and health appointments."
+    },
+    "/breeding_records/{recordId}": {
+      "schema": { "$ref": "#/entities/BreedingRecord" },
+      "description": "Captive breeding and reproduction clutches."
+    },
+    "/breeding_assessments/{assessmentId}": {
+      "schema": { "$ref": "#/entities/BreedingAssessment" },
+      "description": "Breeding condition and readiness assessments."
+    },
+    "/transfers/{transferId}": {
+      "schema": { "$ref": "#/entities/TransferRecord" },
+      "description": "Disposition, transfer, sale, and loan records."
+    },
+    "/staff_members/{staffId}": {
+      "schema": { "$ref": "#/entities/StaffMember" },
+      "description": "Sanctuary personnel and user profiles."
+    },
+    "/statutory_reports/{reportId}": {
+      "schema": { "$ref": "#/entities/StatutoryReport" },
+      "description": "Official DENR statutory report records."
+    }
+  }
+}

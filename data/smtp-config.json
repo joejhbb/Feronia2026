@@ -1,0 +1,9 @@
+{
+  "host": "smtp.gmail.com",
+  "port": 587,
+  "secure": false,
+  "user": "justunme0423@gmail.com",
+  "pass": "svgm mvue gcvu uarq",
+  "fromName": "Feronia Wildlife Facility",
+  "fromEmail": "justunme0423@gmail.com"
+}

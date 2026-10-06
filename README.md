@@ -1,11 +1,23 @@
-<div align="center">
+# Feronia Wildlife Facility Management Information System
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Feronia is a comprehensive wildlife facility management and conservation information system designed with dedicated portals for Facility Administrators, Veterinarians, and Animal Keepers.
 
-  <h1>Built with AI Studio</h2>
+## Features
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- **Administrator Portal**: Oversee animal census, enclosures, breeding records, inventory tracking, staff management, and financial/operational auditing.
+- **Veterinarian Portal**: Manage clinical medical records, health checkup schedules, diagnostic logs, and treatment workflows.
+- **Keeper Portal**: Track daily feeding routines, enclosure maintenance tasks, stock deductions, shift notes, and breeding observations.
+- **Firebase Firestore Integration**: Real-time cloud synchronization, secure role-based access control, and persistent document storage.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Run Locally
 
-</div>
+**Prerequisites:** Node.js (v18+)
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```

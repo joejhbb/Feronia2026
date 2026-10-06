@@ -1,0 +1,6 @@
+{
+  "name": "Feronia Wildlife Facility Management System",
+  "description": "An all-in-one wildlife facility management system with dedicated portals for Administrators, Veterinarians, and Keepers powered by Firebase Firestore.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": []
+}
